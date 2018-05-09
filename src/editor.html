@@ -1,0 +1,53 @@
+<div class="section gf-form-group">
+    <h5 class="section-heading">NetSage Boilerplate Options</h5> 
+    <div class="gf-form"> 
+        <label class="gf-form-label width-8">Option 1</label>
+        <input type="text" class="gf-form-input width-8" ng-model="ctrl.panel.option_1" ng-change="ctrl.render()"><br>
+        
+        <label class="gf-form-label width-8">Option 2</label>
+        <input type="text" class="gf-form-input width-8" ng-model="ctrl.panel.option_2" ng-change="ctrl.render()"><br>
+        
+        <label class="gf-form-label width-8">Option 3</label>
+        <input type="text" class="gf-form-input width-8" ng-model="ctrl.panel.option_3" ng-change="ctrl.render()"><br/>
+        
+        <label class="gf-form-label width-8">Option 4</label>
+        <input type="number" min="0" class="gf-form-input width-4" ng-model="ctrl.panel.option_4" ng-change="ctrl.render()"><br/>
+
+        <gf-form-switch class="gf-form" label-class="width-14" 
+            label="Hide Layers with no values"
+            checked="ctrl.panel.hide_layers" on-change="ctrl.render()">
+        </gf-form-switch>
+    </div>
+
+    <div class="gf-form"> 
+        <gf-form-switch class="gf-form" label-class="width-14" 
+            label="Convert Units to Bytes"
+            checked="ctrl.panel.to_Byte" on-change="ctrl.render()">
+        </gf-form-switch>
+    </div>
+</div>
+
+<div class="section gf-form-group">
+    <h5 class="section-heading">Additional NetSage Boilerplate Options</h5>
+    <div ng-repeat="x in ctrl.panel.choices track by $index">
+        <div class="gf-form">
+            <label class="gf-form-label width-8">Additional 1</label>
+            <input type="text" class="gf-form-input width-8 ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="ctrl.panel.array_option_1[$index]">
+    
+            <label class="gf-form-label width-8">Additional 2</label>
+            <input type="text" class="gf-form-input width-16 ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="ctrl.render()" ng-model="ctrl.panel.array_option_2[$index]">
+    
+            <label class="gf-form-label width-8">Additional 3</label>
+            <input type="text" class="gf-form-input width-8 ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="ctrl.render()" ng-model="ctrl.panel.array_option_3[$index]">
+    
+            <label class="gf-form-label width-8">Additional 4</label>
+            <input type="text" class="gf-form-input width-8 ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="ctrl.render()" ng-model="ctrl.panel.array_option_4[$index]">
+
+            <div class="gf-form" ng-if="$last">
+              <button class="btn btn-inverse gf-form-btn" ng-click="ctrl.removeChoice($index)">-</button>
+            </div>
+        </div>
+    </div>
+    <button class="gf-form-input width-6" ng-click="ctrl.addNewChoice()">+</button>
+</div>
+
