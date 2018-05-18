@@ -39,6 +39,7 @@ reload:
 		sleep 1
 		sudo systemctl start grafana-server
 build:
+		npm install -g gulp
 		npm install
 		gulp
 plugin: build
